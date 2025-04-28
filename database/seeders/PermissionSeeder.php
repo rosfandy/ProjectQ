@@ -22,7 +22,17 @@ class PermissionSeeder extends Seeder
 
         Artisan::call('shield:generate', ['--all' => true]);
 
-        $superAdmin->givePermissionTo(Permission::all());
-        $member->givePermissionTo(Permission::where('name', 'like', '%view%')->get());
+        $allPermissions = Permission::all();
+
+        $memberPermissions = $allPermissions->filter(function ($permission) {
+            return str_contains($permission->name, 'view_') &&
+                !str_contains($permission->name, 'user') &&
+                !str_contains($permission->name, 'role');
+        });
+
+        $superAdmin->givePermissionTo($allPermissions);
+        $member->givePermissionTo($memberPermissions);
+
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
     }
 }
