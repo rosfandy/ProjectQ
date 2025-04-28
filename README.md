@@ -7,6 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Prerequisite
+- Laravel : ^10
+- PHP : ^8.1 or higher
+- filament : ^3.1
+
 ## How To Install
 ### 1. Clone Repository
 ```bash
