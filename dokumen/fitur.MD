@@ -22,3 +22,8 @@ Fitur manajemen proyek memungkinkan pengguna untuk mengelola seluruh siklus hidu
 ## 4. Kanban Board
 Kanban Board adalah fitur visual yang memungkinkan pengguna untuk memantau alur kerja tugas dalam proyek secara lebih jelas. Fitur ini mencakup:
 - Menampilkan tugas dalam kolom yang dapat dipindah-pindahkan berdasarkan statusnya (misalnya: "To Do", "In Progress", "Done").
+
+## 5. Login & Register
+Fitur authentikasi pada aplikasi
+- Dapat login berdasarkan kredensial terdaftar
+- Dapat mendaftar akun baru sebagai member
