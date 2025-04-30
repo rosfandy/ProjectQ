@@ -15,7 +15,6 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $superAdmin = Role::create(['name' => 'super_admin', 'guard_name' => 'web']);
         $member = Role::create(['name' => 'member', 'guard_name' => 'web']);
@@ -32,7 +31,5 @@ class PermissionSeeder extends Seeder
 
         $superAdmin->givePermissionTo($allPermissions);
         $member->givePermissionTo($memberPermissions);
-
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
     }
 }

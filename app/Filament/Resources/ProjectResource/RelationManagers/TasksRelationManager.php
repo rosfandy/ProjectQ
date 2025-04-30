@@ -30,9 +30,11 @@ class TasksRelationManager extends RelationManager
                         if (!$projectId) {
                             return [];
                         }
-                        return \App\Models\ProjectMember::find($projectId)
-                            ->user()
-                            ->pluck('users.name', 'users.id');
+                        return \App\Models\ProjectMember::with('user')
+                            ->where('project_id', $projectId)
+                            ->get()
+                            ->pluck('user.name', 'user.id')
+                            ->toArray();
                     })
                     ->placeholder('Select Project Member')
                     ->columnSpanFull(),
